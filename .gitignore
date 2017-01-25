@@ -5,6 +5,8 @@
 ## Build generated
 build/
 DerivedData
+.build_lin/
+.packages_lin/
 
 ## Various settings
 *.pbxuser
@@ -62,7 +64,15 @@ Carthage/Build
 fastlane/report.xml
 fastlane/screenshots
 
+# Perfect
 Packages/
 PerfectTemplate.xcodeproj
 Tests/
-webroot/
+StORMlog.txt
+buildlinux
+PADockerfile_build
+Package.swift.orig
+*.service
+
+# Let Swift Package Manager / Perfect Assistant generate project
+*.xcodeproj
