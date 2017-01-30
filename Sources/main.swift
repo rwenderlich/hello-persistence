@@ -5,9 +5,6 @@ import StORM
 import PostgresStORM
 import Foundation
 
-let server = HTTPServer()
-var routes = Routes()
-
 if let host = ProcessInfo.processInfo.environment["DATABASE_HOST"] {
   PostgresConnector.host = host
 } else {
@@ -23,17 +20,13 @@ let setupObj = Acronym()
 try? setupObj.setup()
 
 let basic = BasicController()
-basic.addRoutes(routes: &routes)
-
 let til = TILController()
-til.addRoutes(routes: &routes)
 
-server.addRoutes(routes)
-server.serverPort = 8080
-server.documentRoot = "webroot"
+let routes = basic.routes + til.routes
 
 do {
-  try server.start()
+  try HTTPServer.launch(name: "localhost", port: 8080, routes: routes)
+    
 } catch PerfectError.networkError(let err, let msg) {
   print("Network error thrown: \(err) \(msg)")
 }
