@@ -5,7 +5,7 @@ let package = Package(
     name: "hello-persistence",
     targets: [],
     dependencies: [
-        .Package(url: "https://github.com/PerfectlySoft/Perfect-HTTPServer.git", majorVersion: 2),
+        .Package(url: "https://github.com/PerfectlySoft/Perfect-HTTPServer.git", versions: Version(2,1,13)..<Version(3,0,0)),
         .Package(url: "https://github.com/SwiftORM/Postgres-StORM.git", majorVersion: 1),
         .Package(url: "https://github.com/PerfectlySoft/Perfect-Mustache.git", majorVersion: 2),
     ]

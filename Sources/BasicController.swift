@@ -7,17 +7,17 @@ import PerfectHTTPServer
 
 final class BasicController {
 
-    var routes: [Route] {
-      return [
-        Route(method: .get, uri: "/test", handler: test),
-        Route(method: .post, uri: "/new", handler: new),
-        Route(method: .get, uri: "/all", handler: all),
-        Route(method: .get, uri: "/first", handler: first),
-        Route(method: .get, uri: "/afks", handler: afks),
-        Route(method: .get, uri: "/non-afks", handler: nonAfks),
-        Route(method: .post, uri: "/update", handler: update),
-        Route(method: .get, uri: "/delete-first", handler: deleteFirst)
-      ]
+  var routes: [Route] {
+    return [
+      Route(method: .get, uri: "/test", handler: test),
+      Route(method: .post, uri: "/new", handler: new),
+      Route(method: .get, uri: "/all", handler: all),
+      Route(method: .get, uri: "/first", handler: first),
+      Route(method: .get, uri: "/afks", handler: afks),
+      Route(method: .get, uri: "/non-afks", handler: nonAfks),
+      Route(method: .post, uri: "/update", handler: update),
+      Route(method: .get, uri: "/delete-first", handler: deleteFirst)
+    ]
   }
 
   func test(request: HTTPRequest, response: HTTPResponse) {
