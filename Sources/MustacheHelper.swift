@@ -9,9 +9,8 @@ struct MustacheHelper: MustachePageHandler {
       try contxt.requestCompleted(withCollector: collector)
     } catch {
       let response = contxt.webResponse
-      response.status = .internalServerError
       response.appendBody(string: "\(error)")
-      response.completed()
+        .completed(status: .internalServerError)
     }
   }
 }
