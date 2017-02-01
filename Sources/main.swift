@@ -24,9 +24,16 @@ let til = TILController()
 
 let routes = basic.routes + til.routes
 
+let server = HTTPServer()
+server.addRoutes(Routes(routes))
+server.serverPort = 8080
+server.documentRoot = "webroot"
+
 do {
-  try HTTPServer.launch(name: "localhost", port: 8080, routes: routes)
-    
+  // Didn't work - no way to set webroot as far as I can tell...
+  // let context = try HTTPServer.launch(name: "localhost", port: 8080, routes: routes)
+
+  try server.start()
 } catch PerfectError.networkError(let err, let msg) {
   print("Network error thrown: \(err) \(msg)")
 }
